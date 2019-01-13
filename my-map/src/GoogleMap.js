@@ -23,18 +23,30 @@ export default class GoogleMap extends React.Component {
       
       this.venues = values
       this.markers = [];
+      this.infowindow = new window.google.maps.InfoWindow();
 
       venues.forEach(venue => {
         let marker = new window.google.maps.Marker({
           position: { lat: venue.venue.location.lat, lng: venue.venue.location.lng },
           map: this.map,
           venue: venue,
-          id: venue.id,
-          name: venue.name,
-          animation: window.google.maps.Animation.Drop
-          })
-      })
+          id: venue.venue.id,
+          name: venue.venue.name,
+          animation: window.google.maps.Animation.DROP
+          });
 
+        marker.addListener('click', () => {
+          if (marker.getAnimation() !== null) { marker.setAnimation(null) }
+            else { marker.setAnimation(window.google.maps.Animation.BOUNCE) }
+              setTimeout(() => { marker.setAnimation(null) }, 1500)
+        })
+
+        window.google.maps.event.addListener(marker, 'click', () => {
+          this.infowindow.setContent(marker.name);
+          this.infowindow.open(this.map, marker);
+        });
+        this.markers.push(marker)
+      });
     })
 
     const ApiKey = 'AIzaSyAE66eu9-VacrypLMSB1W2V0ciJQchFiT0';
