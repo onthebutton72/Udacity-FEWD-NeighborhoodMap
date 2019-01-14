@@ -1,25 +1,24 @@
-.App {
-  text-align: center;
-  height: 100vh;
-  width: 100%;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#Main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  flex-flow: row nowrap;
 }
 
 #map {
+  height: 92vh;
+  width: 75%;
+}
+
+html, body{
   height: 100vh;
-  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #2860A5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 110%;
+  font-weight: bold;
 }
