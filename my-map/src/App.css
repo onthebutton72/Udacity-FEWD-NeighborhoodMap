@@ -1,11 +1,17 @@
-#Main {
+#main {
+}
+
+#view {
   display: flex;
-  flex-flow: row nowrap;
+  }
+
+.sidebar {
+  width: 25%;
 }
 
 #map {
   height: 92vh;
-  width: 75%;
+  width: 100%;
 }
 
 html, body{
@@ -21,4 +27,20 @@ header, footer {
   text-align: center;
   font-size: 110%;
   font-weight: bold;
+}
+
+input#search {
+font-size: 1rem;
+margin-top: 1.5rem;
+margin-left: 1.5rem;
+}
+
+.venueList {
+  cursor: pointer;
+}
+
+.listItem {
+  background-color: #2860A5;
+  padding: 5px;
+  margin: 5px;
 }
