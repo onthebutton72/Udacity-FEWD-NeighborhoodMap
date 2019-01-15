@@ -3,10 +3,9 @@ import './App.css';
 
 class ListItem extends Component {
 	  render() {
-		var venue = this.props
 	    return (
-				<li className='listItem'>
-					{venue.title}
+				<li className='listItem' onClick = {this.props.openInfoWindow.bind(this, this.props.data.marker)}>
+					{this.props.data.title}
 				</li>
 		)
 	}

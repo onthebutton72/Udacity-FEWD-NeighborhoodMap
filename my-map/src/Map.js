@@ -101,13 +101,6 @@ class Map extends Component {
     )
   } /* End initMap */
 
-  bounceMarker(marker) {
-    marker.setAnimation(window.google.maps.Animation.BOUNCE)
-    setTimeout(function(){
-      marker.setAnimation(null)
-    }, 1000);
-  }
-
   openInfoWindow(marker) {
     var map = this.state
     var infoWindow = new window.google.maps.InfoWindow({
@@ -120,10 +113,9 @@ class Map extends Component {
     }, 3000);
   }
 
-    /* Function to display infowindow once marker or title is clicked */
+  /* Function to display infowindow once marker or title is clicked */
   getInfoWindow(marker) {
     var { infoWindow, map } = this.state
-    /* Check to make sure an infowindow is not already open for another marker */
     infoWindow.open(map, marker)
     this.bounceMarker(marker)
     this.setState({
@@ -134,12 +126,22 @@ class Map extends Component {
     )
   }
 
+  bounceMarker(marker) { 
+    marker.setAnimation(window.google.maps.Animation.BOUNCE)
+    setTimeout(function(){
+      marker.setAnimation(null)
+    }, 1000);
+  }
+
   render() {
     var { markers, venues } = this.state
     return (
       <div id = 'view'>
         <div id="map" role="application"></div>
-        <Sidebar {...this.state} />
+        <Sidebar 
+        key = '100'
+        venues = {venues}
+        openInfoWindow={this.openInfoWindow} />
       </div>
     )
   }
