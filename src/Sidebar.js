@@ -56,7 +56,7 @@ class Sidebar extends Component {
           id="search-field"
           className="search-field"
           type="text"
-          placeholder="Course Search"
+          placeholder="Venue search"
           value={this.state.query}
           onChange={this.filterLocations}
         />

@@ -11,9 +11,9 @@ class Map extends Component {
 
       venues: [
         {
-          title: 'Haagendazs',
-          location: {lat: 38.5808152, lng: -121.4987254},
-          url: 'https://www.haagendazs.us/'
+          title: 'Devine Gelateria',
+          location: {lat: 38.5740841, lng: -121.4823485},
+          url: 'http://devinegelateria.com/'
         },
         {
           title: 'Leatherbys',
@@ -26,9 +26,9 @@ class Map extends Component {
           url: 'http://vicsicecream.com/'
         },
         {
-          title: 'Baskin Robbins',
-          location: {lat: 38.6109687, lng: -121.4763236},
-          url: 'https://www.baskinrobbins.com/'
+          title: 'Cold Stone Creamery',
+          location: {lat: 38.6588541, lng: -121.5113767},
+          url: 'https://www.coldstonecreamery.com/'
         },
         {
           title: 'Gunthers Ice Cream',
@@ -39,7 +39,6 @@ class Map extends Component {
       map: '',
       markers: [],
       openMarker: '',
-      infoWindow: []
     }
 
     this.initMap = this.initMap.bind(this)
@@ -58,7 +57,7 @@ class Map extends Component {
     var { venues, markers, map } = this.state
     var googleMap = window.google.maps
     var mapWindow = document.getElementById('map');
-    var startLocation = {lat: 38.5660332, lng: -121.4750881}
+    var startLocation = {lat: 38.5911082, lng: -121.4353161}
 
     map = new googleMap.Map(mapWindow, {
       center: startLocation,
@@ -119,7 +118,7 @@ class Map extends Component {
   }
 
   getPlacesInfo = marker => {
-  /* Using FourSquare to gather and present some information about the Golf Courses */
+  /* Using FourSquare to gather and present some information about the ice Cream Parlors */
   var clientId = "UOEZ5B4CMFC2YOAMQEL0OPZYS0FQIMQZMOTDCCBQHJWKOTWD"
   var clientSecret = "OYSVFKAMTPPNMLYA2GVB14E4AH4RPBMM0GWVFNYY4OTHDIYD"
   var fourSquare = "https://api.foursquare.com/v2/venues/search?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20181207&ll=" + marker.getPosition().lat() + "," + marker.getPosition().lng() + "&limit=1"
@@ -140,9 +139,9 @@ class Map extends Component {
                       /* Setting the InfoWindow Content */
                       this.state.largeInfoWindow.setContent(
                         '<div class="content">' +
-                        '<div class="course_name">' + marker.title + '</div>' +
+                        '<div class="venue_name">' + marker.title + '</div>' +
                         '<p>' + address + '</p>' +
-                        '<p><a href=' + marker.url + '><b>Course Website: </b>' + marker.title + '</a></p>' +
+                        '<p><b>Website: </b><a href=' + marker.url + '>' + marker.title + '</a></p>' +
                         '<p>' + fourSqInfo + '</p>' +
                         '</div>'
                       )
