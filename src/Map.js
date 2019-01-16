@@ -8,33 +8,7 @@ class Map extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      venues: [
-        {
-          title: "Devine Gelateria",
-          location: {lat: 38.5740841, lng: -121.4823485},
-          url: "http://devinegelateria.com/"
-        },
-        {
-          title: "Leatherbys",
-          location: {lat: 38.5965308, lng: -121.4087963},
-          url: "https://leatherbys.net/"
-        },
-        {
-          title: "Vics Ice Cream",
-          location: {lat: 38.5501289, lng: -121.5056133},
-          url: "http://vicsicecream.com/"
-        },
-        {
-          title: "Cold Stone Creamery",
-          location: {lat: 38.6588541, lng: -121.5113767},
-          url: "https://www.coldstonecreamery.com/"
-        },
-        {
-          title: "Gunthers Ice Cream",
-          location: {lat: 38.5534347, lng: -121.475637},
-          url: "http://gunthersicecream.com/"
-        },
-      ],
+      venues: require('./venues.json'),
       map: "",
       markers: [],
       openMarker: ""
