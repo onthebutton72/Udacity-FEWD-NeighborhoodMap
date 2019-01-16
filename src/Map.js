@@ -65,9 +65,13 @@ class Map extends Component {
       zoom: 12,
       mapTypeControl: false
     })
+    var largeInfoWindow = new googleMap.InfoWindow({
+      minWidth: 300
+    })
 
     this.setState({
       map: map,
+      largeInfoWindow: largeInfoWindow
     })
 
     /* Display venues */
@@ -101,30 +105,57 @@ class Map extends Component {
     )
   } /* End initMap */
 
-  openInfoWindow(marker) {
-    var map = this.state
-    var infoWindow = new window.google.maps.InfoWindow({
-        content: marker.title
-    })
-    infoWindow.setContent(marker.title);
-    infoWindow.open(map, marker);
-    setTimeout(function(){
-      infoWindow.close(map, marker)
-    }, 3000);
-  }
-
-  /* Function to display infowindow once marker or title is clicked */
-  getInfoWindow(marker) {
-    var { infoWindow, map } = this.state
-    infoWindow.open(map, marker)
+  openInfoWindow = marker => {
+    var {largeInfoWindow, map} = this.state
+    largeInfoWindow.open(map, marker)
     this.bounceMarker(marker)
     this.setState({
       openMarker: marker
     })
-    infoWindow.setContent(
-      'Loading InfoWindow Information from FourSquare'
-    )
+    largeInfoWindow.setContent(
+      'Loading FourSquare'
+    );
+    this.getPlacesInfo(marker)
   }
+
+  getPlacesInfo = marker => {
+  /* Using FourSquare to gather and present some information about the Golf Courses */
+  var clientId = "UOEZ5B4CMFC2YOAMQEL0OPZYS0FQIMQZMOTDCCBQHJWKOTWD"
+  var clientSecret = "OYSVFKAMTPPNMLYA2GVB14E4AH4RPBMM0GWVFNYY4OTHDIYD"
+  var fourSquare = "https://api.foursquare.com/v2/venues/search?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20181207&ll=" + marker.getPosition().lat() + "," + marker.getPosition().lng() + "&limit=1"
+  fetch(fourSquare)
+          .then(response => {
+                  if (response.status !== 200) {
+                      this.state.infowindow.setContent("Sorry data can't be loaded")
+                      return;
+                  }
+                  /* Obtaining data from foursquare and then presenting it to the infowindow */
+                  response.json().then(data => {
+                    console.log(data.response.venues[0])
+                      var location_data = data.response.venues[0]
+                      /* Obtaining and setting the address from FourSquare in the Address Variable */
+                      var address = '<b>Address: </b>' + (location_data.location.address) + ', ' + (location_data.location.city) + ', ' + (location_data.location.state) + '<br'
+                      var fourSqInfo = '<a href="https://foursquare.com/v/'+ location_data.id +'" target="_blank">' + location_data.name + ' on Foursquare Website</a>'
+                      console.log(location_data.location.address)
+                      /* Setting the InfoWindow Content */
+                      this.state.largeInfoWindow.setContent(
+                        '<div class="content">' +
+                        '<div class="course_name">' + marker.title + '</div>' +
+                        '<p>' + address + '</p>' +
+                        '<p><a href=' + marker.url + '><b>Course Website: </b>' + marker.title + '</a></p>' +
+                        '<p>' + fourSqInfo + '</p>' +
+                        '</div>'
+                      )
+                  }).catch(e => {
+                    /* Logging the fetch error from FourSquare to the console log */
+                    console.log("error" + e)
+                  })
+              }
+          )
+          .catch(function (err) {
+              this.state.largeInfoWindow.setContent("Sorry data can't be loaded")
+          })
+}
 
   bounceMarker(marker) { 
     marker.setAnimation(window.google.maps.Animation.BOUNCE)

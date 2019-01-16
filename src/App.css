@@ -35,12 +35,9 @@ margin-top: 1.5rem;
 margin-left: 1.5rem;
 }
 
-.venueList {
-  cursor: pointer;
-}
-
 .listItem {
   background-color: #2860A5;
   padding: 5px;
   margin: 5px;
+  cursor: pointer;
 }
