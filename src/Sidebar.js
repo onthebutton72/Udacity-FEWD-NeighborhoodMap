@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ListItem from './ListItem';
+import Search from './Search';
 
 class Sidebar extends Component {
   constructor(props) {
@@ -50,16 +51,7 @@ class Sidebar extends Component {
 
     return (
       <div className="search">
-        <input
-          role="search"
-          aria-labelledby="filter"
-          id="search-field"
-          className="search-field"
-          type="text"
-          placeholder="Venue search"
-          value={this.state.query}
-          onChange={this.filterLocations}
-        />
+        <Search query = { this.query } filterLocations = {this.filterLocations}  />
         <ol>{ locationlist }</ol>
         </div>
       )

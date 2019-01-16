@@ -130,12 +130,11 @@ class Map extends Component {
                   }
                   /* Obtaining data from foursquare and then presenting it to the infowindow */
                   response.json().then(data => {
-                    console.log(data.response.venues[0])
                       var location_data = data.response.venues[0]
                       /* Obtaining and setting the address from FourSquare in the Address Variable */
                       var address = '<b>Address: </b>' + (location_data.location.address) + ', ' + (location_data.location.city) + ', ' + (location_data.location.state) + '<br'
                       var fourSqInfo = '<a href="https://foursquare.com/v/'+ location_data.id +'" target="_blank">' + location_data.name + ' on Foursquare Website</a>'
-                      console.log(location_data.location.address)
+              
                       /* Setting the InfoWindow Content */
                       this.state.largeInfoWindow.setContent(
                         '<div class="content">' +
@@ -164,12 +163,11 @@ class Map extends Component {
   }
 
   render() {
-    var { markers, venues } = this.state
+    var { venues } = this.state
     return (
       <div id = 'view'>
         <div id="map" role="application"></div>
         <Sidebar 
-        key = '100'
         venues = {venues}
         openInfoWindow={this.openInfoWindow} />
       </div>
