@@ -11,7 +11,8 @@ class Map extends Component {
       venues: require('./venues.json'),
       map: "",
       markers: [],
-      openMarker: ""
+      openMarker: "",
+      myInfoWindow: ""
     }
 
     this.initMap = this.initMap.bind(this);
@@ -102,47 +103,42 @@ class Map extends Component {
     fetch(fourSquare)
       .then(response => {
         if (response.status !== 200) {
-          this.state.infowindow.setContent("Data cannot be loaded");
-        return;
+          this.state.infowindow.setContent("Data cannot be loaded")
+          return
         }
-        response.json().then(data => {
+      response.json().then(data => {
         var location_data = data.response.venues[0]
-        var address = "<b>Address: </b>" 
+        var address = 
+          '<b>Address: </b>' 
           + (location_data.location.address) 
-          + ", " 
+          + ', ' 
           + (location_data.location.city) 
-          + ", " 
+          + ', ' 
           + (location_data.location.state) 
-          + "<br"
-        var fourSquareInfo = "<a href='https://foursquare.com/v/"
+          + '<br'
+        var fourSquareInfo = '<a href="https://foursquare.com/v/'
           + location_data.id 
-          +'" target="_blank">' 
+          + '" target="_blank">' 
           + location_data.name 
-          + " on Foursquare Website</a>"
-
-        this.state.myInfoWindow.setContent('<div class="content">' 
-          + '<div class="venue_name">' 
+          + ' on Foursquare Website</a>'
+        this.state.myInfoWindow.setContent(
+          '<div class="content"><div class="venue_name">' 
           + marker.title 
-          + "</div>"
-          + "<p>" 
+          + '</div><p>' 
           + address 
-          + "</p>"
-          + "<p><b>Website: </b><a href="
+          + '</p><p><b>Website: </b> <a href=' 
           + marker.url 
-          + ">" 
+          + '</a>' 
           + marker.title 
-          + "</a></p>" 
-          + "<p>" 
-          + fourSquareInfo + "</p>" +
-          "</div>"
-        );
+          + '</p><p>' 
+          + fourSquareInfo 
+          + '</p></div>')
         }).catch(e => {
-          console.log("error" + e);
-        });
-      }).catch(function (err) {
-        this.state.myInfoWindow.setContent("Data cannot be loaded")
-      }
-    );
+          console.log("error" + e)
+        })
+    }).catch(function (err) {
+      this.state.myInfoWindow.setContent("Data cannot be loaded")
+    })
   }
 
   bounceMarker(marker) { 
