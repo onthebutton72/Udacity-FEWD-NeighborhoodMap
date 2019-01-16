@@ -54,9 +54,9 @@ class Map extends Component {
 
   initMap = () => {
     var { venues, markers, map } = this.state
-    var googleMap = window.google.maps
+    var googleMap = window.google.maps;
     var mapWindow = document.getElementById("map");
-    var startLocation = {lat: 38.5911082, lng: -121.4353161}
+    var startLocation = {lat: 38.5740841, lng: -121.4823485};
 
     map = new googleMap.Map(mapWindow, {
       center: startLocation,
