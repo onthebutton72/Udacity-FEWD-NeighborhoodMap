@@ -3,6 +3,7 @@ import Map from './Map'
 import './App.css'
 
 /* Main page that shows the map, header and footer */
+
 class MainPage extends Component {
   render() {
     return(
@@ -13,7 +14,7 @@ class MainPage extends Component {
           </div>
         <footer>Student: Jamie Martinez</footer>
       </div>
-    )
+    );
   }
 }
 

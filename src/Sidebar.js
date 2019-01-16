@@ -3,6 +3,8 @@ import './App.css';
 import ListItem from './ListItem';
 import Search from './Search';
 
+/* Page that shows the Sidebar next to the Map */
+
 class Sidebar extends Component {
   constructor(props) {
     super(props)
@@ -10,51 +12,50 @@ class Sidebar extends Component {
       locations: '',
       query: ''
     }
-    this.filterLocations = this.filterLocations.bind(this)
+    this.filterLocations = this.filterLocations.bind(this);
   }
 
-  /* The filterLocations functions performs the filtering of the input box and hides or displays the appropriate markers */
   filterLocations(query) {
-    var { venues } = this.props
-      const {value} = query.target
-      var locations = []
-      venues.forEach((myLocation) => {
-        if (myLocation.title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
-          myLocation.marker.setVisible(true)
-          locations.push(myLocation)
-        } else {
-          myLocation.marker.setVisible(false)
-        }
-      })
-      this.setState({
-        locations: locations,
-        query: value
-      })
+    var { venues } = this.props;
+    var { value } = query.target;
+    var locations = [];
+    venues.forEach((myLocation) => {
+      if (myLocation.title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+        myLocation.marker.setVisible(true);
+        locations.push(myLocation);
+      } else {
+        myLocation.marker.setVisible(false);
+      }
+    })
+    this.setState({
+      locations: locations,
+      query: value
+    })
   }
 
   componentWillMount() {
     this.setState({
       locations: this.props.venues
-    })
+    });
   }
 
   render() {
     var locationlist = this.state.locations.map((listItem, index) => {
     return (
         <ListItem 
-          key = {index} 
+          key = { index } 
           openInfoWindow = { this.props.openInfoWindow.bind(this)}
           data = { listItem } 
         />
-      )
-    }, this) /* End of venues map function */
+      );
+    }, this);
 
     return (
-      <div className="search">
-        <Search query = { this.query } filterLocations = {this.filterLocations}  />
-        <ol>{ locationlist }</ol>
-        </div>
-      )
+      <div className="sidebar">
+        <Search query = { this.query } filterLocations = { this.filterLocations }  />
+        <menu id="menu">{ locationlist }</menu>
+      </div>
+    );
   }
 }
 
