@@ -76,6 +76,8 @@ class Map extends Component {
 
   openInfoWindow = marker => {
     var { myInfoWindow, map } = this.state
+    var latLng = marker.getPosition();
+    map.panTo(latLng)
     myInfoWindow.open(map, marker);
     this.bounceMarker(marker);
     this.setState({
