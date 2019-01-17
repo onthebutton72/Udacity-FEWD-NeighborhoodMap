@@ -81,6 +81,7 @@ class Map extends Component {
     map.panTo(latLng)
     myInfoWindow.open(map, marker);
     this.bounceMarker(marker);
+    this.hideSidebar(marker);
     this.setState({
       openMarker: marker
     });
@@ -157,10 +158,10 @@ class Map extends Component {
 
   toggleSidebar() {
   var x = document.getElementById('sidebar');
-    if (x.style.visibility === 'hidden') {
-      x.style.visibility = 'visible';
-    } else {
+    if (x.style.visibility === 'visible') {
       x.style.visibility = 'hidden';
+    } else {
+      x.style.visibility = 'visible';
     }
   }
 
