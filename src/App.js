@@ -9,7 +9,7 @@ class MainPage extends Component {
   render() {
     return(
       <div id = 'App'>
-        <header>Udacity Neighborhood Map Project</header>
+        <header><h1 aria-label="Udacity Project Header" tabIndex="1">Udacity Neighborhood Map Project</h1></header>
         <div id = 'main'>
           <Map />
         </div>

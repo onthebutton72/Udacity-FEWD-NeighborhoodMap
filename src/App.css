@@ -10,7 +10,7 @@ html, body{
 header, footer {
   background-color: #2860A5;
   text-align: center;
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
 }
 /* styling for header */
@@ -37,7 +37,7 @@ footer {
 }
 /* styling for map */
 #map {
-  height: 90vh;
+  height: 87vh;
   width: 100%;
   position: relative;
 }
@@ -66,10 +66,15 @@ footer {
 #burger-menu {
   position: fixed;
   left: 0;
-  top: 5vh;
+  top: 8vh;
   background-color: #2860A5;
   z-index: 1;
   margin: 5px;
+}
+
+#burger-menu:hover {
+  background-color: #D75640 ;
+
 }
 /* styling for individual list items */
 .listItem {
@@ -95,6 +100,7 @@ footer {
 .toggle-button:focus {
   outline: none;
 }
+
 /* styling for the horizontal lines in the burger menu */
 .toggle-button-line {
   width: 25px;
