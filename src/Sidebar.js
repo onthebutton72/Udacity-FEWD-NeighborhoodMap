@@ -3,7 +3,7 @@ import './App.css';
 import ListItem from './ListItem';
 import Search from './Search';
 
-/* Page that shows the Sidebar next to the Map */
+/* Page that renders the Sidebar next to the Map */
 
 class Sidebar extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Sidebar extends Component {
     }
     this.filterLocations = this.filterLocations.bind(this);
   }
-
+  /* Function to loop through each venue, change text to lower case and filter the markers */
   filterLocations(query) {
     var { venues } = this.props;
     var { value } = query.target;
@@ -38,7 +38,7 @@ class Sidebar extends Component {
       locations: this.props.venues
     });
   }
-
+  /* Render the list items in the sidebar */
   render() {
     var locationlist = this.state.locations.map((listItem, index) => {
     return (
@@ -49,7 +49,7 @@ class Sidebar extends Component {
         />
       );
     }, this);
-
+    /* Return the filtered locations to the query */
     return (
       <div id="sidebar">
         <Search query = { this.query } filterLocations = { this.filterLocations }  />

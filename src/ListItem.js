@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-/* Page that shows the list items in the Sidebar */
+/* Page that renders the list items in the Sidebar */
 
 class ListItem extends Component {
 	  render() {

@@ -3,7 +3,7 @@ import "./App.css";
 import Sidebar from "./Sidebar";
 import Hamburger from './Hamburger';
 
-/* Page that shows the Map, Markers and Sidebar */
+/* Page that renders the Map, Markers and Sidebar */
 
 class Map extends Component {
   constructor(props) {
@@ -22,18 +22,18 @@ class Map extends Component {
   componentWillMount() {
     this.renderMap();
   }
-
+  /* Render the map */
   renderMap = () => {
     window.initMap = this.initMap
     loadMapScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAE66eu9-VacrypLMSB1W2V0ciJQchFiT0&v=3&callback=initMap")
   }
-
+  /* Initialize the map */
   initMap = () => {
     var { venues, markers, map } = this.state
     var googleMap = window.google.maps;
     var mapWindow = document.getElementById("map");
     var startLocation = {lat: 38.5740841, lng: -121.4823485};
-
+    /* Create the map */
     map = new googleMap.Map(mapWindow, {
       center: startLocation,
       zoom: 10,
@@ -47,7 +47,7 @@ class Map extends Component {
       map: map,
       myInfoWindow: myInfoWindow
     });
-
+    /* Loop through the venues and create the markers */
     venues.forEach((myVenue) => {
       var title = myVenue.title
       var position = myVenue.location
@@ -59,7 +59,7 @@ class Map extends Component {
         url: url,
         animation: googleMap.Animation.DROP
       });
-
+      /* Add listener to bounce the marker and open the InfoWindow */
       marker.addListener("click", () => {
         this.bounceMarker(marker)
         this.openInfoWindow(marker)
@@ -74,7 +74,7 @@ class Map extends Component {
       { venues: venues }
     );
   }
-
+  /* Open the InfoWindow with FourSquare data when the marker is activated */
   openInfoWindow = marker => {
     var { myInfoWindow, map } = this.state
     var latLng = marker.getPosition();
@@ -90,7 +90,7 @@ class Map extends Component {
     );
     this.getFourSquareData(marker)
   }
-
+  /* Fetch to retrieve the FourSquare data and attach to the markers InfoWindow */
   getFourSquareData = marker => {
     var clientId = "UOEZ5B4CMFC2YOAMQEL0OPZYS0FQIMQZMOTDCCBQHJWKOTWD"
     var clientSecret = "OYSVFKAMTPPNMLYA2GVB14E4AH4RPBMM0GWVFNYY4OTHDIYD"
@@ -144,18 +144,18 @@ class Map extends Component {
       this.state.myInfoWindow.setContent("Data cannot be loaded")
     })
   }
-
+  /* Function to cause the marker animation to bounce */
   bounceMarker(marker) { 
     marker.setAnimation(window.google.maps.Animation.BOUNCE)
     setTimeout(function(){
       marker.setAnimation(null);
     }, 1000);
   }
-
+  /* Function to hide the sidebar */
   hideSidebar() {
     document.getElementById("sidebar").style.visibility = "hidden";
   }
-
+  /* Function to toggle show/hiding the sidebar */
   toggleSidebar() {
   var x = document.getElementById('sidebar');
     if (x.style.visibility === 'visible') {
@@ -164,7 +164,7 @@ class Map extends Component {
       x.style.visibility = 'visible';
     }
   }
-
+  /* Render the hamburger menu and sidebar */
   render() {
     var { venues } = this.state
     return (
@@ -174,15 +174,15 @@ class Map extends Component {
         </div>
         <div id="map" role="application"></div>
         <Sidebar 
-        venues = {venues}
-        openInfoWindow = {this.openInfoWindow}
+          venues = {venues}
+          openInfoWindow = {this.openInfoWindow}
         />
       </div>
     )
   }
 }
 
-/* From https://www.youtube.com/watch?v=W5LhLZqj76s */
+/* Function to load the map script asynchronously */
 function loadMapScript(url) {
  var index = window.document.getElementsByTagName("script")[0];
  var script = window.document.createElement("script");

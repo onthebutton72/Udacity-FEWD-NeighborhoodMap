@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-/* Page that shows the Hamburger menu */
+/* Page that renders the Hamburger menu */
 class Hamburger extends Component {
 	render() {
 	    return (

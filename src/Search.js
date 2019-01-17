@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-/* Page that shows the search box in the Sidebar */
+/* Page that renders the search box in the Sidebar */
 
 class Search extends Component {
 	  render() {

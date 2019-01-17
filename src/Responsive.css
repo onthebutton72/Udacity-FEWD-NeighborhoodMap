@@ -1,13 +1,14 @@
+/* Responsive element styling */
+
+/* styling for small screen sizes */
 @media screen and (max-width: 640px) {
   header, footer {
     font-size: 90%;
     font-weight: bold;
   }
-
   #map {
       height: 85vh;
     }
-
   #sidebar {
     top: 15vh;
     width: 100vh;
@@ -15,6 +16,7 @@
   }
 }
 
+/* styling for medium screen sizes */
 @media screen and (min-width: 641px, max-width: 1007px) {
   header {
     padding: 2vh;
@@ -24,11 +26,11 @@
   }
 }
 
+/* styling landscape mode */
 @media all and (orientation: landscape) {
   #search-field {
     font-size: 1rem;
   }
-
   #sidebar {
     top: 16vh;
   }
