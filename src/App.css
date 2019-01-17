@@ -22,14 +22,10 @@ footer {
   position: relative;
 }
 
-#container {
+#App {
   min-height: 100%;
   margin-bottom: -5vh;
   position: relative;
-}
-
-#App {
-  min-height: 100%;
 }
 
 #menu {
@@ -71,11 +67,6 @@ footer {
   background-color: #2860A5;
   z-index: 1;
   margin: 5px;
-}
-
-.clearfooter {
-  height: 5vh;
-  clear: both;
 }
 
 .listItem {

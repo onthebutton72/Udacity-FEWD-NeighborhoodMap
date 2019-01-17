@@ -9,16 +9,12 @@ class MainPage extends Component {
   render() {
     return(
       <div id = 'App'>
-      <div id = "container">
         <header>Udacity Neighborhood Map Project</header>
         <div id = 'main'>
           <Map />
         </div>
-        <div className = "clearfooter"></div>
-      </div>
         <footer>Student: Jamie Martinez</footer>
       </div>
-      
     );
   }
 }
