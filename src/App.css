@@ -44,7 +44,7 @@ header, footer {
   cursor: pointer;
 }
 
-.sidebar {
+#sidebar {
   position: fixed;
   left: 0;
   height: 92vh;
@@ -54,4 +54,36 @@ header, footer {
   max-width: 100%;
 }
 
+#burger-menu {
+  position: fixed;
+  left: 20%;
+  background-color: #2860A5;
+  z-index: 1;
+  margin: 5px;
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 40px;
+  width: 50px;
+  margin: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button-line {
+  width: 50px;
+  height: 3px;
+  background: white;
+
+}
 

@@ -1,6 +1,7 @@
-import React, { Component } from "react"
-import "./App.css"
-import Sidebar from "./Sidebar"
+import React, { Component } from "react";
+import "./App.css";
+import Sidebar from "./Sidebar";
+import Hamburger from './Hamburger';
 
 /* Page that shows the Map, Markers and Sidebar */
 
@@ -150,14 +151,31 @@ class Map extends Component {
     }, 1000);
   }
 
+  hideSidebar() {
+    document.getElementById("sidebar").style.visibility = "hidden";
+  }
+
+  toggleSidebar() {
+  var x = document.getElementById('sidebar');
+    if (x.style.visibility === 'hidden') {
+      x.style.visibility = 'visible';
+    } else {
+      x.style.visibility = 'hidden';
+    }
+  }
+
   render() {
     var { venues } = this.state
     return (
       <div id = "view">
+        <div id = 'burger-menu'>
+          <Hamburger toggleSidebar = {this.toggleSidebar} />
+        </div>
         <div id="map" role="application"></div>
         <Sidebar 
         venues = {venues}
-        openInfoWindow={this.openInfoWindow} />
+        openInfoWindow = {this.openInfoWindow}
+        />
       </div>
     )
   }

@@ -26,11 +26,11 @@ class Sidebar extends Component {
       } else {
         myLocation.marker.setVisible(false);
       }
-    })
+    });
     this.setState({
       locations: locations,
       query: value
-    })
+    });
   }
 
   componentWillMount() {
@@ -51,7 +51,7 @@ class Sidebar extends Component {
     }, this);
 
     return (
-      <div className="sidebar">
+      <div id="sidebar">
         <Search query = { this.query } filterLocations = { this.filterLocations }  />
         <menu id="menu">{ locationlist }</menu>
       </div>
