@@ -4,21 +4,12 @@
     font-weight: bold;
   }
 
-  header {
-    padding: 2vh;
-  }
-
-  footer {
-    padding: 1vh;
-  }
-
   #map {
-    height: 88vh;
-  }
+      height: 87vh;
+    }
 
   #sidebar {
-    top: 35px;
-    height: 44%;
+    top: 15vh;
     width: 100vh;
     font-size: 90%;
   }
@@ -28,20 +19,17 @@
   header {
     padding: 2vh;
   }
-
-  footer {
-    padding: 1vh;
-  }
-
   #map {
-    height: 88vh;
+      height: 88vh;
+  }
+}
+
+@media all and (orientation: landscape) {
+  #search-field {
+    font-size: 1rem;
   }
 
   #sidebar {
-    top: 35px;
-    height: 44%;
-    width: 50%;
-    font-size: 1rem;
-    font-size: 90%;
+    top: 16vh;
   }
 }

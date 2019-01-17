@@ -1,5 +1,5 @@
 html, body{
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -9,7 +9,27 @@ header, footer {
   text-align: center;
   font-size: 110%;
   font-weight: bold;
-  padding: 1vh;
+}
+
+header {
+  height: 5vh;
+  line-height: 5vh;
+}
+
+footer {
+  height: 5vh;
+  line-height: 5vh;
+  position: relative;
+}
+
+#container {
+  min-height: 100%;
+  margin-bottom: -5vh;
+  position: relative;
+}
+
+#App {
+  min-height: 100%;
 }
 
 #menu {
@@ -18,7 +38,7 @@ header, footer {
 }
 
 #map {
-  height: 92vh;
+  height: 90vh;
   width: 100%;
   position: relative;
 }
@@ -28,39 +48,41 @@ header, footer {
   margin-top: 1rem;
   width: 100%;
   text-align: center;
-
 }
 
 #view {
   display: flex;
   }
 
-.listItem {
-  background-color: #2860A5;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
 #sidebar {
   visibility: hidden;
   position: fixed;
   left: 0;
-  top: 37px;
-  height: 40%;
+  top: 10vh;
   background: grey;
   font-size: 1rem;
-  width: 30%;
   max-width: 100%;
 }
 
 #burger-menu {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 5vh;
   background-color: #2860A5;
   z-index: 1;
   margin: 5px;
+}
+
+.clearfooter {
+  height: 5vh;
+  clear: both;
+}
+
+.listItem {
+  background-color: #2860A5;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .toggle-button {
@@ -84,6 +106,5 @@ header, footer {
   width: 25px;
   height: 3px;
   background: white;
-
 }
 
