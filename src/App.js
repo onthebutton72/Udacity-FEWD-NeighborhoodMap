@@ -14,7 +14,7 @@ class MainPage extends Component {
         <div id = 'main'>
           <Map />
         </div>
-        <div class = "clearfooter"></div>
+        <div className = "clearfooter"></div>
       </div>
         <footer>Student: Jamie Martinez</footer>
       </div>
