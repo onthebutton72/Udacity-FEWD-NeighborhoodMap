@@ -3,7 +3,7 @@
 /* styling for small screen sizes */
 @media screen and (max-width: 640px) {
   header, footer {
-    font-size: 90%;
+    font-size: 50%;
     font-weight: bold;
   }
   #map {
