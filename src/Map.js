@@ -36,7 +36,7 @@ class Map extends Component {
 
     map = new googleMap.Map(mapWindow, {
       center: startLocation,
-      zoom: 12,
+      zoom: 10,
       mapTypeControl: false
     });
     var myInfoWindow = new googleMap.InfoWindow({

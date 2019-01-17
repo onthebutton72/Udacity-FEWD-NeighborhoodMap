@@ -1,0 +1,47 @@
+@media screen and (max-width: 640px) {
+  header, footer {
+    font-size: 90%;
+    font-weight: bold;
+  }
+
+  header {
+    padding: 2vh;
+  }
+
+  footer {
+    padding: 1vh;
+  }
+
+  #map {
+    height: 88vh;
+  }
+
+  #sidebar {
+    top: 35px;
+    height: 44%;
+    width: 100vh;
+    font-size: 90%;
+  }
+}
+
+@media screen and (min-width: 641px, max-width: 1007px) {
+  header {
+    padding: 2vh;
+  }
+
+  footer {
+    padding: 1vh;
+  }
+
+  #map {
+    height: 88vh;
+  }
+
+  #sidebar {
+    top: 35px;
+    height: 44%;
+    width: 50%;
+    font-size: 1rem;
+    font-size: 90%;
+  }
+}

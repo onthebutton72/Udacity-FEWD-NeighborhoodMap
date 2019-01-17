@@ -6,14 +6,10 @@ html, body{
 
 header, footer {
   background-color: #2860A5;
-  padding-top: 10px;
-  padding-bottom: 10px;
   text-align: center;
   font-size: 110%;
   font-weight: bold;
-}
-
-#main {
+  padding: 1vh;
 }
 
 #menu {
@@ -31,6 +27,8 @@ header, footer {
   font-size: 1.25rem;
   margin-top: 1rem;
   width: 100%;
+  text-align: center;
+
 }
 
 #view {
@@ -48,11 +46,11 @@ header, footer {
   visibility: hidden;
   position: fixed;
   left: 0;
-  top: 40px;
-  height: 45vh;
+  top: 37px;
+  height: 40%;
   background: grey;
   font-size: 1rem;
-  width: 50%;
+  width: 30%;
   max-width: 100%;
 }
 
