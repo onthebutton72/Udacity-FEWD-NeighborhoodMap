@@ -7,7 +7,7 @@
     font-weight: bold;
   }
   #map {
-      height: 85vh;
+      height: 90vh;
     }
   #sidebar {
     top: 15vh;
@@ -21,9 +21,6 @@
   header {
     padding: 2vh;
   }
-  #map {
-      height: 88vh;
-  }
 }
 
 /* styling landscape mode */
@@ -33,5 +30,8 @@
   }
   #sidebar {
     top: 16vh;
+  }
+  header, footer {
+    font-size: 50%;
   }
 }

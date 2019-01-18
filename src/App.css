@@ -1,4 +1,4 @@
-/* Non-responsive element styling */
+r/* Non-responsive element styling */
 
 /* styling for html and body */
 html, body{
@@ -24,6 +24,10 @@ footer {
   line-height: 5vh;
   position: relative;
 }
+/* styling for h1 */
+h1 {
+  margin: 0px;
+}
 /* styling for main page */
 #App {
   min-height: 100%;
@@ -45,8 +49,12 @@ footer {
 #search-field {
   font-size: 1.25rem;
   margin-top: 1rem;
-  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 95%;
   text-align: center;
+  border-radius: 20px;
+  outline: none;
 }
 /* styling for the view showing the hamburger menu and sidebar */
 #view {
@@ -57,7 +65,7 @@ footer {
   visibility: hidden;
   position: fixed;
   left: 0;
-  top: 10vh;
+  top: 15vh;
   background: grey;
   font-size: 1rem;
   max-width: 100%;
@@ -82,6 +90,10 @@ footer {
   padding: 5px;
   margin: 5px;
   cursor: pointer;
+}
+/* styling for individual list items on hover */
+.listItem:hover{
+  background-color: #D75640;
 }
 /* styling for the burger-menu */
 .toggle-button {
