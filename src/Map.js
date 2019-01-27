@@ -25,7 +25,7 @@ class Map extends Component {
   /* Render the map */
   renderMap = () => {
     window.initMap = this.initMap
-    loadMapScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAE66eu9-VacrypLMSB1W2V0ciJQchFiT0&v=3&callback=initMap")
+    loadMapScript("https://maps.googleapis.com/maps/api/js?key=use your key here=initMap")
   }
   /* Initialize the map */
   initMap = () => {
@@ -92,8 +92,8 @@ class Map extends Component {
   }
   /* Fetch to retrieve the FourSquare data and attach to the markers InfoWindow */
   getFourSquareData = marker => {
-    var clientId = "UOEZ5B4CMFC2YOAMQEL0OPZYS0FQIMQZMOTDCCBQHJWKOTWD"
-    var clientSecret = "OYSVFKAMTPPNMLYA2GVB14E4AH4RPBMM0GWVFNYY4OTHDIYD"
+    var clientId = "use your client id"
+    var clientSecret = "use your client secret"
     var fourSquare = "https://api.foursquare.com/v2/venues/search?client_id=" 
       + clientId 
       + "&client_secret=" 
