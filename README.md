@@ -30,7 +30,7 @@ This is the final project for the Udacity Full Stack Web Developer Nanodegree.  
 ## Instructions
 
 * Clone or download the repository: https://github.com/onthebutton72/my-map.git
-* Change director to the cloned/downloaded folder
+* Change directory to the cloned/downloaded folder
 * NPM Install
 * To use offline, update the index.js file to register.
 
