@@ -34,7 +34,6 @@ This is the final project for the Udacity Full Stack Web Developer Nanodegree.  
 * NPM Install
 * To use offline, update the index.js file to register.
 
-* Or see the demo at https://zombiepotatogun.000webhostapp.com/
 
 ## Dependencies
 
